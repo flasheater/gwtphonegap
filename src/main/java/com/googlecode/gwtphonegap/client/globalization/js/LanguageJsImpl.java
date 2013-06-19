@@ -20,8 +20,9 @@ public class LanguageJsImpl extends JavaScriptObject implements Language
   }
 
   @Override
-  public final native String getValue() /*-{
-                                        return this.value;
-                                        }-*/;
+  public final native String getValue()
+  /*-{
+    return this.value;
+  }-*/;
 
 }
