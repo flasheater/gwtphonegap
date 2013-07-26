@@ -28,31 +28,38 @@ public abstract class EventBaseImpl implements Event, EventMock {
 		pgImpl = new PhoneGapEventHandlerImpl();
 	}
 
-	public HasBackButtonPressedHandlers getBackButton() {
+	@Override
+  public HasBackButtonPressedHandlers getBackButton() {
 		return pgImpl;
 	}
 
-	public HasMenuButtonPressedHandlers getMenuButton() {
+	@Override
+  public HasMenuButtonPressedHandlers getMenuButton() {
 		return pgImpl;
 	}
 
-	public HasSearchButtonHandlers getSearchButton() {
+	@Override
+  public HasSearchButtonHandlers getSearchButton() {
 		return pgImpl;
 	}
 
-	public HasPauseHandlers getPauseHandler() {
+	@Override
+  public HasPauseHandlers getPauseHandler() {
 		return pgImpl;
 	}
 
-	public HasResumeHandlers getResumeHandler() {
+	@Override
+  public HasResumeHandlers getResumeHandler() {
 		return pgImpl;
 	}
 
-	public HasOnlineHandler getOnlineHandler() {
+	@Override
+  public HasOnlineHandler getOnlineHandler() {
 		return pgImpl;
 	}
 
-	public HasOfflineHandler getOffLineHandler() {
+	@Override
+  public HasOfflineHandler getOffLineHandler() {
 		return pgImpl;
 	}
 

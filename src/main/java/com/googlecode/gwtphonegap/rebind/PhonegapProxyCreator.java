@@ -26,7 +26,8 @@ public class PhonegapProxyCreator extends ProxyCreator {
 		super(serviceIntf);
 	}
 
-	protected Class<? extends RemoteServiceProxy> getProxySupertype() {
+	@Override
+  protected Class<? extends RemoteServiceProxy> getProxySupertype() {
 		return PhoneGapRemoteServiceProxy.class;
 	}
 

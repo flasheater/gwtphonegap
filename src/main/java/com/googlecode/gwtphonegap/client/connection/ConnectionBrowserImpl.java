@@ -33,7 +33,8 @@ public class ConnectionBrowserImpl implements ConnectionMock {
 		return type;
 	}
 
-	public void setType(String type) {
+	@Override
+  public void setType(String type) {
 		if (type == null) {
 			throw new IllegalArgumentException("type can not be null");
 		}

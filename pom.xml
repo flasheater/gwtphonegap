@@ -11,7 +11,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.gwtphonegap</groupId>
 	<artifactId>gwtphonegap</artifactId>
-	<version>2.4.0.1-SNAPSHOT</version>
+	<version>2.4.0.1</version>
 	<packaging>jar</packaging>
 	<name>GWT PhoneGap</name>
 
@@ -19,7 +19,7 @@
 	<description>A GWT Wrapper for the PhoneGap Javascript Library</description>
 
 	<properties>
-		<gwtversion>2.5.0</gwtversion>
+		<gwtversion>2.5.1</gwtversion>
 	</properties>
 
 	<licenses>

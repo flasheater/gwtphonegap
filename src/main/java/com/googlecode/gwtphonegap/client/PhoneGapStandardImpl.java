@@ -79,6 +79,7 @@ public class PhoneGapStandardImpl implements PhoneGap {
     setupReadyHook();
   }
 
+  @Override
   public PhoneGapLog getLog() {
     if (phoneGapLog == null) {
       phoneGapLog = new PhoneGapLogStandardImpl();

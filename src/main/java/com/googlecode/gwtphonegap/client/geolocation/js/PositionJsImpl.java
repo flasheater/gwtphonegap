@@ -40,7 +40,8 @@ public final class PositionJsImpl extends JavaScriptObject implements Position {
 
 	}
 
-	public native CoordinatesJsImpl getCoordinates()/*-{
+	@Override
+  public native CoordinatesJsImpl getCoordinates()/*-{
 		return this.coords;
 	}-*/;
 

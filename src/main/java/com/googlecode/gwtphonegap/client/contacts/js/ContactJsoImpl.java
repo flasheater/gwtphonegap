@@ -349,7 +349,8 @@ public final class ContactJsoImpl extends JavaScriptObject implements Contact {
 		this.save();
 	}-*/;
 
-	public native Contact cloneContact()/*-{
+	@Override
+  public native Contact cloneContact()/*-{
 		return this.clone();
 	}-*/;
 

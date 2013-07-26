@@ -23,49 +23,49 @@ package com.googlecode.gwtphonegap.client.notification;
  */
 public class NotificationMobileImpl implements Notification {
 
-	private static final AlertCallback emptyCallback = new AlertCallback() {
+  private static final AlertCallback emptyCallback = new AlertCallback() {
 
-		@Override
-		public void onOkButtonClicked() {
+    @Override
+    public void onOkButtonClicked() {
 
-		}
-	};
-	private static final String[] defaultLabels = new String[] { "Ok", "Cancel" };
+    }
+  };
+  private static final String[] defaultLabels = new String[] { "Ok", "Cancel" };
 
-	public NotificationMobileImpl() {
+  public NotificationMobileImpl() {
 
-	}
+  }
 
-	@Override
-	public native void beep(int count)/*-{
+  @Override
+  public native void beep(int count)/*-{
 		$wnd.navigator.notification.beep(count);
 	}-*/;
 
-	@Override
-	public native void vibrate(int milliseconds)/*-{
+  @Override
+  public native void vibrate(int milliseconds)/*-{
 		$wnd.navigator.notification.vibrate(milliseconds);
 	}-*/;
 
-	@Override
-	public void alert(String message) {
-		alert(message, emptyCallback);
+  @Override
+  public void alert(final String message) {
+    alert(message, emptyCallback);
 
-	}
+  }
 
-	@Override
-	public void alert(String message, AlertCallback callback) {
-		alert(message, callback, "Alert");
+  @Override
+  public void alert(final String message, final AlertCallback callback) {
+    alert(message, callback, "Alert");
 
-	}
+  }
 
-	@Override
-	public void alert(String message, AlertCallback callback, String title) {
-		alert(message, callback, title, "Ok");
+  @Override
+  public void alert(final String message, final AlertCallback callback, final String title) {
+    alert(message, callback, title, "Ok");
 
-	}
+  }
 
-	@Override
-	public native void alert(String message, AlertCallback callback, String title, String buttonName) /*-{
+  @Override
+  public native void alert(String message, AlertCallback callback, String title, String buttonName) /*-{
 
 		var cal = function() {
 			callback.@com.googlecode.gwtphonegap.client.notification.AlertCallback::onOkButtonClicked()();
@@ -76,41 +76,46 @@ public class NotificationMobileImpl implements Notification {
 
 	}-*/;
 
-	@Override
-	public void confirm(String message, ConfirmCallback callback) {
-		confirm(message, callback, "Title");
+  @Override
+  public void confirm(final String message, final ConfirmCallback callback) {
+    confirm(message, callback, "Title");
 
-	}
+  }
 
-	@Override
-	public void confirm(String message, ConfirmCallback callback, String title) {
+  @Override
+  public void confirm(final String message, final ConfirmCallback callback, final String title) {
 
-		confirm(message, callback, title, defaultLabels);
+    confirm(message, callback, title, defaultLabels);
 
-	}
+  }
 
-	@Override
-	public void confirm(String message, ConfirmCallback callback, String title, String[] buttonLabels) {
-		if (buttonLabels == null)
-			buttonLabels = defaultLabels;
+  @Override
+  public void confirm(final String message, final ConfirmCallback callback, final String title, final String[] buttonLabels) {
+    String[] labels = buttonLabels;
+    if ( labels == null )
+    {
+      labels = defaultLabels;
+    }
 
-		StringBuffer buffer = new StringBuffer();
+    final StringBuffer buffer = new StringBuffer();
 
-		for (int i = 0; i < buttonLabels.length; i++) {
-			buffer.append(buttonLabels[i]);
+    for ( int i = 0; i < labels.length; i++ )
+    {
+      buffer.append( labels[ i ] );
 
-			if (i != buttonLabels.length - 1) {
-				buffer.append(",");
-			}
+      if ( i != labels.length - 1 )
+      {
+        buffer.append(",");
+      }
 
-		}
+    }
 
-		String labels = buffer.toString();
-		confirm0(message, callback, title, labels);
+    final String flatLabels = buffer.toString();
+    confirm0( message, callback, title, flatLabels );
 
-	}
+  }
 
-	private native void confirm0(String message, ConfirmCallback callback, String title, String buttonLabels) /*-{
+  private native void confirm0(String message, ConfirmCallback callback, String title, String buttonLabels) /*-{
 
 		var cal = function(button) {
 			callback.@com.googlecode.gwtphonegap.client.notification.ConfirmCallback::onConfirm(I)(button);
