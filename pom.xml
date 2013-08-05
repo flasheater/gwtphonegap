@@ -170,6 +170,20 @@
 		</dependency>
 	</dependencies>
 
+<!-- isp-specific distribution management -->
+  <distributionManagement>
+     <repository>
+        <id>build-server.isp-insoft.de</id>
+        <name>build-server.isp-insoft.de-releases</name>
+        <url>http://build-server/artifactory/libs-release-local</url>
+    </repository>
 
+    <snapshotRepository>
+        <id>build-server.isp-insoft.de</id>
+        <name>build-server.isp-insoft.de-snapshots</name>
+        <url>http://build-server/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+
+</distributionManagement>
 
 </project>
